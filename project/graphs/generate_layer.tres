@@ -1,0 +1,94 @@
+[gd_resource type="VoxelGraphFunction" format=3 uid="uid://bgkd7thfev28d"]
+
+[resource]
+graph_data = {
+"connections": [[9, 0, 7, 2], [8, 0, 9, 1], [7, 0, 29, 2], [6, 0, 30, 1], [4, 0, 14, 1], [11, 0, 6, 0], [11, 0, 30, 2], [24, 0, 30, 0], [24, 0, 29, 0], [14, 0, 11, 2], [15, 0, 14, 0], [31, 0, 16, 0], [16, 0, 15, 0], [29, 0, 2, 0], [30, 0, 29, 1], [18, 0, 6, 1], [19, 0, 16, 1], [19, 0, 26, 0], [20, 0, 15, 1], [20, 0, 26, 1], [26, 0, 9, 0]],
+"nodes": {
+"11": {
+"a": 0.0,
+"b": 1.0,
+"gui_position": Vector2(-4.51927, -38.1731),
+"threshold": 0.0,
+"type": "Select"
+},
+"14": {
+"gui_position": Vector2(-164.519, -38.1731),
+"type": "Subtract"
+},
+"15": {
+"gui_position": Vector2(-324.519, -38.1731),
+"type": "Add"
+},
+"16": {
+"gui_position": Vector2(-500, -60),
+"type": "Multiply"
+},
+"18": {
+"gui_position": Vector2(-40, 140),
+"name": &"block_id",
+"type": "CustomInput"
+},
+"19": {
+"gui_position": Vector2(-1060, 0),
+"name": &"amplitude",
+"type": "CustomInput"
+},
+"2": {
+"gui_position": Vector2(1040, -180),
+"type": "OutputType"
+},
+"20": {
+"gui_position": Vector2(-1000, 120),
+"name": &"height",
+"type": "CustomInput"
+},
+"24": {
+"gui_position": Vector2(320, -500),
+"name": &"else",
+"type": "CustomInput"
+},
+"26": {
+"gui_position": Vector2(-680, -340),
+"type": "Add"
+},
+"29": {
+"gui_position": Vector2(780, -220),
+"type": "Mix"
+},
+"30": {
+"gui_position": Vector2(520, -300),
+"type": "Mix"
+},
+"31": {
+"gui_position": Vector2(-720, -100),
+"name": &"noise",
+"type": "CustomInput"
+},
+"4": {
+"gui_position": Vector2(-280, 100),
+"type": "InputY"
+},
+"6": {
+"gui_position": Vector2(260, -40),
+"type": "Multiply"
+},
+"7": {
+"a": 0.0,
+"b": 1.0,
+"gui_position": Vector2(-260, -360),
+"threshold": 0.0,
+"type": "Select"
+},
+"8": {
+"gui_position": Vector2(-540, -220),
+"type": "InputY"
+},
+"9": {
+"gui_position": Vector2(-440, -340),
+"type": "Subtract"
+}
+},
+"version": 2
+}
+input_definitions = [["y", "InputY", 0], ["amplitude", "CustomInput", 0], ["block_id", "CustomInput", 0], ["else", "CustomInput", 0], ["height", "CustomInput", 0], ["noise", "CustomInput", 0]]
+output_definitions = [["type", "OutputType", 0]]

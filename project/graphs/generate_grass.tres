@@ -1,0 +1,87 @@
+[gd_resource type="VoxelGraphFunction" load_steps=2 format=3 uid="uid://bj8i0u0telt80"]
+
+[ext_resource type="VoxelGraphFunction" uid="uid://bgkd7thfev28d" path="res://graphs/generate_layer.tres" id="1_s5del"]
+
+[resource]
+graph_data = {
+"connections": [[13, 0, 3, 0], [9, 0, 2, 3], [9, 0, 7, 3], [7, 0, 1, 0], [6, 0, 1, 2], [5, 0, 3, 1], [3, 0, 6, 2], [2, 0, 1, 1], [12, 0, 2, 5], [12, 0, 7, 5], [11, 0, 2, 4], [11, 0, 7, 4], [10, 0, 2, 1], [10, 0, 7, 1], [1, 0, 8, 0]],
+"nodes": {
+"1": {
+"gui_position": Vector2(-1300.36, -357.857),
+"type": "Mix"
+},
+"10": {
+"gui_position": Vector2(-2120, -220),
+"name": &"amplitude",
+"type": "CustomInput"
+},
+"11": {
+"gui_position": Vector2(-2160, 0),
+"name": &"height",
+"type": "CustomInput"
+},
+"12": {
+"gui_position": Vector2(-2160, 100),
+"name": &"noise",
+"type": "CustomInput"
+},
+"13": {
+"gui_position": Vector2(-1900, -520),
+"name": &"water_height",
+"type": "CustomInput"
+},
+"2": {
+"_function": ExtResource("1_s5del"),
+"amplitude": 0.0,
+"auto_connect": true,
+"block_id": 2.0,
+"else": 0.0,
+"gui_position": Vector2(-1740.36, -317.857),
+"height": 0.0,
+"name": &"Generate Underwater Dirt",
+"noise": 0.0,
+"type": "Function",
+"y": 0.0
+},
+"3": {
+"gui_position": Vector2(-1640, -500),
+"type": "Subtract"
+},
+"5": {
+"gui_position": Vector2(-1760, -420),
+"type": "InputY"
+},
+"6": {
+"a": 0.0,
+"b": 1.0,
+"gui_position": Vector2(-1500, -500),
+"threshold": 1.0,
+"type": "Select"
+},
+"7": {
+"_function": ExtResource("1_s5del"),
+"amplitude": 0.0,
+"auto_connect": true,
+"block_id": 6.0,
+"else": 0.0,
+"gui_position": Vector2(-1700, -60),
+"height": 0.0,
+"name": &"Generate Grass",
+"noise": 0.0,
+"type": "Function",
+"y": 0.0
+},
+"8": {
+"gui_position": Vector2(-1140, -340),
+"type": "OutputType"
+},
+"9": {
+"gui_position": Vector2(-2140, -100),
+"name": &"else",
+"type": "CustomInput"
+}
+},
+"version": 2
+}
+input_definitions = [["y", "InputY", 0], ["amplitude", "CustomInput", 0], ["else", "CustomInput", 0], ["height", "CustomInput", 0], ["noise", "CustomInput", 0], ["water_height", "CustomInput", 0]]
+output_definitions = [["type", "OutputType", 0]]

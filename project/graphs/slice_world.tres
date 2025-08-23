@@ -1,0 +1,36 @@
+[gd_resource type="VoxelGraphFunction" format=3 uid="uid://la3b8sa8o0wi"]
+
+[resource]
+graph_data = {
+"connections": [[6, 0, 3, 2], [5, 0, 2, 1], [3, 0, 2, 2], [2, 0, 1, 0]],
+"nodes": {
+"1": {
+"gui_position": Vector2(290, -355.243),
+"type": "OutputType"
+},
+"2": {
+"a": 0.0,
+"gui_position": Vector2(70, -375.243),
+"type": "Mix"
+},
+"3": {
+"a": 1.0,
+"b": 0.0,
+"gui_position": Vector2(-90, -235.243),
+"threshold": 0.0,
+"type": "Select"
+},
+"5": {
+"gui_position": Vector2(-140, -360),
+"name": &"else",
+"type": "CustomInput"
+},
+"6": {
+"gui_position": Vector2(-200, -140),
+"type": "InputZ"
+}
+},
+"version": 2
+}
+input_definitions = [["z", "InputZ", 0], ["else", "CustomInput", 0]]
+output_definitions = [["type", "OutputType", 0]]

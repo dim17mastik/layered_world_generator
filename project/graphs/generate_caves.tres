@@ -1,0 +1,98 @@
+[gd_resource type="VoxelGraphFunction" load_steps=2 format=3 uid="uid://bqfdc6fx0wr8m"]
+
+[ext_resource type="VoxelGraphFunction" uid="uid://bgkd7thfev28d" path="res://graphs/generate_layer.tres" id="1_2ji80"]
+
+[resource]
+graph_data = {
+"connections": [[17, 0, 4, 4], [2, 0, 4, 3], [15, 0, 2, 4], [4, 0, 7, 2], [6, 0, 7, 1], [7, 0, 8, 2], [8, 0, 10, 0], [9, 0, 8, 1], [11, 0, 2, 5], [12, 0, 4, 5], [13, 0, 6, 2], [14, 0, 2, 1], [16, 0, 4, 1]],
+"nodes": {
+"10": {
+"gui_position": Vector2(720, -160),
+"type": "OutputType"
+},
+"11": {
+"gui_position": Vector2(-520, 520),
+"name": &"top_noise",
+"type": "CustomInput"
+},
+"12": {
+"gui_position": Vector2(-100, 500),
+"name": &"bottom_noise",
+"type": "CustomInput"
+},
+"13": {
+"gui_position": Vector2(-140, -40),
+"name": &"cave_noise",
+"type": "CustomInput"
+},
+"14": {
+"gui_position": Vector2(-540, 300),
+"name": &"top_amplitude",
+"type": "CustomInput"
+},
+"15": {
+"gui_position": Vector2(-560, 400),
+"name": &"top_height",
+"type": "CustomInput"
+},
+"16": {
+"gui_position": Vector2(-120, 300),
+"name": &"bottom_amplitude",
+"type": "CustomInput"
+},
+"17": {
+"gui_position": Vector2(-140, 400),
+"name": &"bottom_height",
+"type": "CustomInput"
+},
+"2": {
+"_function": ExtResource("1_2ji80"),
+"amplitude": 0.0,
+"auto_connect": true,
+"block_id": 1.0,
+"else": 0.0,
+"gui_position": Vector2(-280, 140),
+"height": 0.0,
+"noise": 0.0,
+"type": "Function",
+"y": 0.0
+},
+"4": {
+"_function": ExtResource("1_2ji80"),
+"amplitude": 0.0,
+"auto_connect": true,
+"block_id": 0.0,
+"else": 0.0,
+"gui_position": Vector2(200, 120),
+"height": 0.0,
+"noise": 0.0,
+"type": "Function",
+"y": 0.0
+},
+"6": {
+"a": 0.0,
+"b": 1.0,
+"gui_position": Vector2(120, -100),
+"threshold": 0.0,
+"type": "Select"
+},
+"7": {
+"a": 1.0,
+"gui_position": Vector2(380, -20),
+"type": "Mix"
+},
+"8": {
+"a": 0.0,
+"gui_position": Vector2(540, -160),
+"type": "Mix"
+},
+"9": {
+"gui_position": Vector2(340, -200),
+"name": &"else",
+"type": "CustomInput"
+}
+},
+"version": 2
+}
+input_definitions = [["y", "InputY", 0], ["bottom_amplitude", "CustomInput", 0], ["bottom_height", "CustomInput", 0], ["bottom_noise", "CustomInput", 0], ["cave_noise", "CustomInput", 0], ["else", "CustomInput", 0], ["top_amplitude", "CustomInput", 0], ["top_height", "CustomInput", 0], ["top_noise", "CustomInput", 0]]
+output_definitions = [["type", "OutputType", 0]]

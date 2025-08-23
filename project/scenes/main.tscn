@@ -1,0 +1,163 @@
+[gd_scene load_steps=24 format=3 uid="uid://cn11kjibqxmwe"]
+
+[ext_resource type="VoxelGeneratorGraph" uid="uid://dby1rbu1xvebb" path="res://graphs/generate_world.tres" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://dx6ngf70eookx" path="res://scripts/settings.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dafmigapp2sh4" path="res://scripts/player.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_jyhfs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6xl0"]
+
+[sub_resource type="Sky" id="Sky_tipki"]
+sky_material = SubResource("ProceduralSkyMaterial_o6xl0")
+
+[sub_resource type="Environment" id="Environment_85g3d"]
+background_mode = 2
+sky = SubResource("Sky_tipki")
+
+[sub_resource type="VoxelBlockyModelEmpty" id="VoxelBlockyModelEmpty_sgp6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.568973, 0.568973, 0.568973, 1)
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_o5qli"]
+material_override_0 = SubResource("StandardMaterial3D_jyhfs")
+atlas_size_in_tiles = Vector2i(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.347528, 0.274447, 0.182918, 1)
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_tefeu"]
+material_override_0 = SubResource("StandardMaterial3D_tbgi4")
+atlas_size_in_tiles = Vector2i(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefeu"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.303233, 0.303233, 0.303233, 1)
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_o6xl0"]
+material_override_0 = SubResource("StandardMaterial3D_tefeu")
+atlas_size_in_tiles = Vector2i(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tipki"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.133196, 0.133196, 0.133196, 1)
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_85g3d"]
+material_override_0 = SubResource("StandardMaterial3D_tipki")
+atlas_size_in_tiles = Vector2i(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.317647, 0.654902, 1, 0.137255)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyFluid" id="VoxelBlockyFluid_trceg"]
+material = SubResource("StandardMaterial3D_eb6dy")
+
+[sub_resource type="VoxelBlockyModelFluid" id="VoxelBlockyModelFluid_a8y0u"]
+transparency_index = 1
+fluid = SubResource("VoxelBlockyFluid_trceg")
+level = 255
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0.529412, 0.0823529, 1)
+texture_filter = 2
+
+[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_a8y0u"]
+material_override_0 = SubResource("StandardMaterial3D_trceg")
+atlas_size_in_tiles = Vector2i(1, 1)
+
+[sub_resource type="VoxelBlockyLibrary" id="VoxelBlockyLibrary_jyhfs"]
+models = Array[VoxelBlockyModel]([SubResource("VoxelBlockyModelEmpty_sgp6g"), SubResource("VoxelBlockyModelCube_o5qli"), SubResource("VoxelBlockyModelCube_tefeu"), SubResource("VoxelBlockyModelCube_o6xl0"), SubResource("VoxelBlockyModelCube_85g3d"), SubResource("VoxelBlockyModelFluid_a8y0u"), SubResource("VoxelBlockyModelCube_a8y0u")])
+
+[sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_tbgi4"]
+library = SubResource("VoxelBlockyLibrary_jyhfs")
+
+[node name="Main" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_85g3d")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.612372, -0.353553, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353553, 0, 20, 0)
+shadow_enabled = true
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+generator = ExtResource("1_o6xl0")
+mesher = SubResource("VoxelMesherBlocky_tbgi4")
+
+[node name="Player" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 25, -2)
+script = ExtResource("2_0wfyh")
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Player"]
+
+[node name="Help" type="Label" parent="."]
+offset_right = 208.0
+offset_bottom = 49.0
+text = "W, A, S, D, Q, E - movement
+Esc - Lock / Unlock Mouse"
+
+[node name="Settings" type="GridContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 66.0
+grow_horizontal = 0
+columns = 2
+script = ExtResource("1_sugp2")
+
+[node name="SensitivityLabel" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="SensitivityBox" type="SpinBox" parent="Settings"]
+layout_mode = 2
+step = 0.1
+
+[node name="SpeedLabel" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Speed"
+
+[node name="SpeedBox" type="SpinBox" parent="Settings"]
+layout_mode = 2
+max_value = 1000.0
+step = 0.1
+
+[node name="JoystickLabel" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Joystick"
+
+[node name="JoystickBox" type="CheckBox" parent="Settings"]
+layout_mode = 2
+text = "On"
+
+[node name="ViewDistanceLabel" type="Label" parent="Settings"]
+layout_mode = 2
+text = "View Distance"
+
+[node name="ViewDistanceBox" type="SpinBox" parent="Settings"]
+layout_mode = 2
+max_value = 10000.0
+
+[node name="VirtualJoystick" parent="." instance=ExtResource("4_jyhfs")]
+visible = false
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_forward"
+action_down = "move_back"
+
+[connection signal="value_changed" from="Settings/SensitivityBox" to="Settings" method="_on_sensitivity_box_value_changed"]
+[connection signal="value_changed" from="Settings/SpeedBox" to="Settings" method="_on_speed_box_value_changed"]
+[connection signal="toggled" from="Settings/JoystickBox" to="Settings" method="_on_joystick_box_toggled"]
+[connection signal="value_changed" from="Settings/ViewDistanceBox" to="Settings" method="_on_view_distance_box_value_changed"]
