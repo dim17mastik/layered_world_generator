@@ -55,7 +55,7 @@ atlas_size_in_tiles = Vector2i(1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.317647, 0.654902, 1, 0.137255)
+albedo_color = Color(0.317647, 0.654902, 1, 0.392157)
 uv1_triplanar = true
 texture_filter = 2
 
@@ -105,7 +105,7 @@ script = ExtResource("2_0wfyh")
 offset_right = 208.0
 offset_bottom = 49.0
 text = "W, A, S, D, Q, E - movement
-Esc - Lock / Unlock Mouse"
+R - Lock / Unlock Mouse"
 
 [node name="Settings" type="GridContainer" parent="."]
 anchors_preset = 1
@@ -151,7 +151,6 @@ layout_mode = 2
 max_value = 10000.0
 
 [node name="VirtualJoystick" parent="." instance=ExtResource("4_jyhfs")]
-visible = false
 action_left = "move_left"
 action_right = "move_right"
 action_up = "move_forward"

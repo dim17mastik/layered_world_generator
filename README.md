@@ -22,8 +22,7 @@ Try in your browser: TODO
 
 ## 🔄 Compatibility
 
-- Godot - 4.4.1+
-- Voxel Tools - 1.4.1+
+- Voxel Tools - 1.4.1+ double precision build
 
 ## 🧩 Used Addons
 
