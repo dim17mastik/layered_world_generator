@@ -5,27 +5,27 @@
 [ext_resource type="VoxelGraphFunction" uid="uid://bgkd7thfev28d" path="res://graphs/generate_layer.tres" id="1_llq4r"]
 [ext_resource type="VoxelGraphFunction" uid="uid://la3b8sa8o0wi" path="res://graphs/slice_world.tres" id="1_n4wb4"]
 
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_7o2af"]
+seed = 206
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_36yw6"]
+seed = 27
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_ri2hr"]
+seed = 505
+
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_n4wb4"]
 seed = 13
 period = 10.0001
 fractal_type = 0
 
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_ri2hr"]
-seed = 505
-
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_36yw6"]
-seed = 27
-
 [sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_epcse"]
 seed = 206
 fractal_octaves = 4
 
-[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_7o2af"]
-seed = 206
-
 [resource]
 graph_data = {
-"connections": [[161, 0, 140, 4], [160, 0, 85, 5], [159, 0, 84, 5], [158, 0, 83, 5], [158, 0, 146, 0], [157, 0, 144, 4], [157, 0, 156, 0], [92, 0, 144, 2], [85, 0, 86, 3], [147, 0, 140, 8], [148, 0, 140, 3], [83, 0, 84, 3], [151, 0, 40, 0], [82, 0, 83, 3], [140, 0, 151, 1], [84, 0, 85, 3], [86, 0, 140, 5], [144, 0, 82, 3], [146, 0, 147, 0], [156, 0, 82, 5]],
+"connections": [[92, 0, 144, 2], [85, 0, 86, 3], [84, 0, 85, 3], [83, 0, 84, 3], [82, 0, 83, 3], [140, 0, 151, 1], [86, 0, 140, 5], [144, 0, 82, 3], [157, 0, 144, 4], [157, 0, 156, 0], [146, 0, 147, 0], [159, 0, 84, 5], [147, 0, 140, 8], [160, 0, 85, 5], [148, 0, 140, 3], [161, 0, 140, 4], [151, 0, 40, 0], [156, 0, 82, 5], [158, 0, 83, 5], [158, 0, 146, 0]],
 "nodes": {
 "140": {
 "_function": ExtResource("1_c4j30"),
