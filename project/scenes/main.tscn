@@ -13,6 +13,8 @@ sky_material = SubResource("ProceduralSkyMaterial_o6xl0")
 [sub_resource type="Environment" id="Environment_85g3d"]
 background_mode = 2
 sky = SubResource("Sky_tipki")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="VoxelBlockyModelEmpty" id="VoxelBlockyModelEmpty_sgp6g"]
 
@@ -87,10 +89,6 @@ library = SubResource("VoxelBlockyLibrary_jyhfs")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_85g3d")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, 0.612372, -0.353553, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353553, 0, 20, 0)
-shadow_enabled = true
-
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
 generator = ExtResource("1_o6xl0")
 mesher = SubResource("VoxelMesherBlocky_tbgi4")
@@ -100,6 +98,15 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 script = ExtResource("2_0wfyh")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="Player"]
+
+[node name="ReleaseFocusRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+color = Color(1, 1, 1, 0)
 
 [node name="Help" type="Label" parent="."]
 offset_right = 208.0
@@ -134,11 +141,11 @@ layout_mode = 2
 max_value = 1000.0
 step = 0.1
 
-[node name="JoystickLabel" type="Label" parent="Settings"]
+[node name="JoysticksLabel" type="Label" parent="Settings"]
 layout_mode = 2
-text = "Joystick"
+text = "Joysticks"
 
-[node name="JoystickBox" type="CheckBox" parent="Settings"]
+[node name="JoysticksBox" type="CheckBox" parent="Settings"]
 layout_mode = 2
 text = "On"
 
@@ -150,13 +157,29 @@ text = "View Distance"
 layout_mode = 2
 max_value = 10000.0
 
-[node name="VirtualJoystick" parent="." instance=ExtResource("4_jyhfs")]
+[node name="MovementJoystick" parent="." instance=ExtResource("4_jyhfs")]
+offset_top = -300.0
+offset_bottom = 0.0
 action_left = "move_left"
 action_right = "move_right"
 action_up = "move_forward"
 action_down = "move_back"
 
+[node name="RotationJoystick" parent="." instance=ExtResource("4_jyhfs")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+action_left = "rotate_left"
+action_right = "rotate_right"
+action_up = "rotate_up"
+action_down = "rotate_down"
+
 [connection signal="value_changed" from="Settings/SensitivityBox" to="Settings" method="_on_sensitivity_box_value_changed"]
 [connection signal="value_changed" from="Settings/SpeedBox" to="Settings" method="_on_speed_box_value_changed"]
-[connection signal="toggled" from="Settings/JoystickBox" to="Settings" method="_on_joystick_box_toggled"]
+[connection signal="toggled" from="Settings/JoysticksBox" to="Settings" method="_on_joysticks_box_toggled"]
 [connection signal="value_changed" from="Settings/ViewDistanceBox" to="Settings" method="_on_view_distance_box_value_changed"]
