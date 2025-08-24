@@ -4,7 +4,7 @@ An example of a procedurally generated blocky voxel world using [Voxel Tools for
 
 ## 🌐 Web
 
-Try in your browser: https://dim17mastik.itch.io/layered-world-generation
+Try in your browser: https://dim17mastik.itch.io/layered_world_generation
 
 ## 📸 Screenshots
 
